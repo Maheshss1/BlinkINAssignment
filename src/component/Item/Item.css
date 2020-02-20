@@ -1,0 +1,7 @@
+.SingleItem{
+    list-style: none;
+}
+
+.SingleItem:hover{
+    cursor: pointer;
+}
