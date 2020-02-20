@@ -16,8 +16,6 @@ class Todo extends React.Component{
     }
 
     handleForm = (e) => {
-
-        
         e.preventDefault();
         const todoList = [...this.state.todoList]
         todoList.push({
@@ -77,7 +75,7 @@ class Todo extends React.Component{
     render(){
 
         const list = this.state.todoList.map((todo)=>{
-            return <li style={{cursor:"pointer",listStyle:"none",textDecoration:todo.marked?"line-through":null}} 
+            return <li key={todo.key} style={{cursor:"pointer",listStyle:"none",textDecoration:todo.marked?"line-through":null}} 
                     onClick={()=>this.markCompleted(todo)}>
                         {todo.todo} 
                     </li>
