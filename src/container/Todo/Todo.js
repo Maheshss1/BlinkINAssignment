@@ -1,5 +1,5 @@
 import React from 'react'
-import Item from '../../component/Item/Item'
+//import Item from '../../component/Item/Item'
 
 class Todo extends React.Component{
 
@@ -77,7 +77,11 @@ class Todo extends React.Component{
     render(){
 
         const list = this.state.todoList.map((todo)=>{
-            return <Item key={todo.key} item={todo} clicked={this.markCompleted} />
+            return <li style={{cursor:"pointer",listStyle:"none",textDecoration:todo.marked?"line-through":null}} 
+                    onClick={()=>this.markCompleted(todo)}>
+                        {todo.todo} 
+                    </li>
+            
         })
 
         console.log(this.state.todoList)
@@ -90,7 +94,9 @@ class Todo extends React.Component{
                     
                 </form>
                 <button onClick={this.sortTodoList}>{this.state.sorted?"Asc":"Desc"}</button>
-                {list}
+                <ul>
+                    {list}
+                </ul>
             </div>
 
         )
